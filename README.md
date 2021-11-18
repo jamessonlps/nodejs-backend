@@ -7,6 +7,6 @@ O objetivo do projeto é desenvolver um backend utilizando [NodeJS](https://node
 
 ## Features em desenvolvimento
 > 18/11/21 a 23/11/21
-> - [  ] Setup inicial do projeto
-> - [  ] Criação das primeiras rotas para criar imóveis e listar os existentes
-> - [  ] Criação das primeiras rotas para criar as especificações referente a uma propriedade
+> - [x] Setup inicial do projeto
+> - [ ] Criação das primeiras rotas para criar imóveis e listar os existentes
+> - [ ] Criação das primeiras rotas para criar as especificações referente a uma propriedade
