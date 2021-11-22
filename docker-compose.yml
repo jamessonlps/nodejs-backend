@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  database_sweethome: 
+    image: postgres
+    container_name: database_sweethome
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=jamesson
+      - POSTGRES_PASSWORD=leandro
+      - POSTGRES_DB=sweethome
+    volumes:
+      - pgdata:/data/postgres
+  app:
+    build: .
+    container_name: sweethome
+    restart: always
+    ports:
+      - 3001:3001
+    volumes:
+      - .:/usr/app
+    links:
+      - database_sweethome
+    depends_on:
+      - database_sweethome
+
+volumes:
+  pgdata:
+    driver: local
