@@ -8,5 +8,12 @@ O objetivo do projeto é desenvolver um backend utilizando [NodeJS](https://node
 ## Features em desenvolvimento
 > 18/11/21 a 23/11/21
 > - [x] Setup inicial do projeto
-> - [ ] Criação das primeiras rotas para criar imóveis e listar os existentes
-> - [ ] Criação das primeiras rotas para criar as especificações referente a uma propriedade
+> - [x] Criação das primeiras rotas para criar imóveis e listar os existentes
+> - [x] Criação das primeiras rotas para criar as especificações referente a uma propriedade
+
+____
+
+>23/11/21 a 30/11/21
+> - [ ] Criação da tabela de usuários com senhas criptografadas
+> - [ ] Autenticação de usuário via token
+> - [ ] Iniciar documentação usando Swagger
