@@ -1,0 +1,191 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sweet Home API",
+    "description": "Web Service RESTfull desenvolvida para uma plataforma de serviços de aluguéis de imóveis",
+    "contact": {
+      "name": "Jamesson Leandro",
+      "email": "jamessonlps@al.insper.edu.br"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/properties": {
+      "get": {
+        "tags": ["Propriedades"],
+        "summary": "Lista todas as propriedades",
+        "description": "Rota responsável por retornar um array contendo objetos de todas as propriedades disponíveis na base de dados",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "monthly_rate": {
+                        "type": "number"
+                      },
+                      "available": {
+                        "type": "boolean"
+                      },
+                      "broker": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "district": {
+                        "type": "string"
+                      },
+                      "street": {
+                        "type": "string"
+                      },
+                      "number": {
+                        "type": "number"
+                      },
+                      "complement": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Propriedades"],
+        "summary": "Cria uma propriedade",
+        "description": "Rota responsável por criar uma nova propriedade na base de dados",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "monthly_rate": {
+                    "type": "number"
+                  },
+                  "available": {
+                    "type": "boolean"
+                  },
+                  "broker": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "district": {
+                    "type": "string"
+                  },
+                  "street": {
+                    "type": "string"
+                  },
+                  "number": {
+                    "type": "number"
+                  },
+                  "complement": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "title": "Apartamento com 3 quartos",
+                  "description": "Famosa Toca do Larry",
+                  "monthly_rate": 6000,
+                  "available": false,
+                  "broker": "N.A. Empreendimentos",
+                  "state": "SP",
+                  "city": "São Paulo",
+                  "district": "Vila Olímpia",
+                  "street": "Rua Alvorada",
+                  "number": 859,
+                  "complement": "APT 101"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Criada com sucesso"
+          }
+        }
+      }
+    },
+    "/specifications": {
+      "post": {
+        "tags": ["Especificações"],
+        "summary": "Cria uma especificação de propriedade",
+        "description": "Rota responsável por cadastrar uma especificação referente a uma propriedade juntamente cadastrada.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "area": {
+                    "type": "string"
+                  },
+                  "number_of_bathrooms": {
+                    "type": "number"
+                  },
+                  "number_of_bedrooms": {
+                    "type": "number"
+                  },
+                  "number_of_suites": {
+                    "type": "number"
+                  },
+                  "isFurnished": {
+                    "type": "boolean"
+                  },
+                  "aboutFurniture": {
+                    "type": "string"
+                  },
+                  "pets": {
+                    "type": "boolean"
+                  },
+                  "garage": {
+                    "type": "boolean"
+                  }
+                },
+                "example": {
+                  "area": 98,
+                  "number_of_bathrooms": 2,
+                  "number_of_bedrooms": 3,
+                  "number_of_suites": 1,
+                  "isFurnished": true,
+                  "aboutFurniture": "Apartamento com sofá grande na sala, cozinha completa com fogão, forno, geladeira e microondas, lavanderia com máquina de lavar com 1 ano de uso.",
+                  "pets": true,
+                  "garage": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

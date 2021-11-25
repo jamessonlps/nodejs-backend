@@ -14,6 +14,7 @@ O objetivo do projeto é desenvolver um backend utilizando [NodeJS](https://node
 ____
 
 >23/11/21 a 30/11/21
-> - [ ] Criação da tabela de usuários com senhas criptografadas
-> - [ ] Autenticação de usuário via token
-> - [ ] Iniciar documentação usando Swagger
+> - [x] Criação da tabela de usuários com senhas criptografadas
+> - [x] Autenticação de usuário via token
+> - [x] Iniciar documentação usando Swagger
+> - [ ] Listagem de propriedades por disponibilidade/endereço
