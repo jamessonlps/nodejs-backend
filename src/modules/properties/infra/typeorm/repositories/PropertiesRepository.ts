@@ -1,6 +1,7 @@
 import { getRepository, Repository } from "typeorm";
-import Property from "../../entities/Property";
-import IPropertiesRepository, { ICreatePropertyDTO } from "../IPropertiesRepository";
+import { ICreatePropertyDTO } from "../../../dtos/ICreatePropertyDTO";
+import IPropertiesRepository from "../../../repositories/IPropertiesRepository";
+import Property from "../entities/Property";
 
 class PropertiesRepository implements IPropertiesRepository {
   private repository: Repository<Property>;

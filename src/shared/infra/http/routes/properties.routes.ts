@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import CreatePropertyController from "../modules/properties/useCases/createProperty/CreatePropertyController";
-import ListPropertiesController from "../modules/properties/useCases/listProperties/ListPropertiesController";
+import CreatePropertyController from "../../../../modules/properties/useCases/createProperty/CreatePropertyController";
+import ListPropertiesController from "../../../../modules/properties/useCases/listProperties/ListPropertiesController";
 
 const propertiesRoutes = Router();
 

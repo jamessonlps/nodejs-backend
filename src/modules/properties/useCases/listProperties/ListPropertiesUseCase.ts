@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
-import Property from "../../entities/Property";
-import PropertiesRepository from "../../repositories/implementations/PropertiesRepository";
+import Property from "../../infra/typeorm/entities/Property";
+import PropertiesRepository from "../../infra/typeorm/repositories/PropertiesRepository";
 
 @injectable()
 class ListPropertiesUseCase {

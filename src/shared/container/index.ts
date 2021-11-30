@@ -1,9 +1,9 @@
 import { container } from "tsyringe";
-import UsersRepository from "../../modules/accounts/repositories/implementations/UsersRepository";
+import UsersRepository from "../../modules/accounts/infra/typeorm/repositories/UsersRepository";
 import IUsersRepository from "../../modules/accounts/repositories/IUsersRepository";
+import PropertiesRepository from "../../modules/properties/infra/typeorm/repositories/PropertiesRepository";
+import SpecificationsRepository from "../../modules/properties/infra/typeorm/repositories/SpecificationsRepository";
 
-import PropertiesRepository from "../../modules/properties/repositories/implementations/PropertiesRepository";
-import SpecificationsRepository from "../../modules/properties/repositories/implementations/SpecificationsRepository";
 import IPropertiesRepository from "../../modules/properties/repositories/IPropertiesRepository";
 import ISpecificationsRepository from "../../modules/properties/repositories/ISpecificationsRepository";
 
