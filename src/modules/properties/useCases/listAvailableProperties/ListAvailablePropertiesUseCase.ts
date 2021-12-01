@@ -2,6 +2,12 @@ import { inject, injectable } from "tsyringe";
 import Property from "../../infra/typeorm/entities/Property";
 import PropertiesRepository from "../../infra/typeorm/repositories/PropertiesRepository";
 
+interface IRequest {
+  state?: string;
+  city?: string;
+  district?: string;
+}
+
 @injectable()
 class ListPropertiesUseCase {
   constructor(
@@ -9,8 +15,8 @@ class ListPropertiesUseCase {
     private propertiesRepository: PropertiesRepository
   ) {}
 
-  async execute(): Promise<Property[]> {
-    const properties = await this.propertiesRepository.list();
+  async execute({ state, city, district }: IRequest): Promise<Property[]> {
+    const properties = await this.propertiesRepository.listAvailableProperties(state, city, district);
     return properties;
   }
 }

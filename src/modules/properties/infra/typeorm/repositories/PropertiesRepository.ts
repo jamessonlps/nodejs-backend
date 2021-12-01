@@ -38,8 +38,24 @@ class PropertiesRepository implements IPropertiesRepository {
     await this.repository.save(property);
   }
 
-  async list(): Promise<Property[]> {
-    const properties = await this.repository.find();
+  async listAvailableProperties(state?: string, city?: string, district?: string): Promise<Property[]> {
+    const propertiesQuery = await this.repository
+      .createQueryBuilder('c')
+      .where('available = :available', { available: true });
+
+    if (state) {
+      propertiesQuery.andWhere('c.state = :state', { state });
+    }
+
+    if (city) {
+      propertiesQuery.andWhere('c.city = :city', { city });
+    }
+
+    if (district) {
+      propertiesQuery.andWhere('c.district = :district', { district });
+    }
+
+    const properties = await propertiesQuery.getMany();
     return properties;
   }
 

@@ -17,4 +17,12 @@ ____
 > - [x] Criação da tabela de usuários com senhas criptografadas
 > - [x] Autenticação de usuário via token
 > - [x] Iniciar documentação usando Swagger
-> - [ ] Listagem de propriedades por disponibilidade/endereço
+> - [x] Listagem de propriedades por disponibilidade/endereço
+
+----
+
+>31/11/21 a 08/12/2021
+> - [ ] Criar tabela de aluguéis
+> - [ ] Criar tabela de relação entre propriedade e especificação
+> - [ ] Finalizar documentação das rotas
+> - [ ] Deploy da aplicação

@@ -15,11 +15,7 @@ interface IPropertiesRepository {
     complement 
   }: ICreatePropertyDTO): Promise<void>;
 
-  list(): Promise<Property[]>;
-
-  // findByCity(city: string): Promise<Property[]>;
-
-  // findByState(state: string): Promise<Property[]>;
+  listAvailableProperties(state?: string, city?: string, district?: string): Promise<Property[]>;
 }
 
 export default IPropertiesRepository;
