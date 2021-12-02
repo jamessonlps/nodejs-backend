@@ -26,7 +26,8 @@ export class CreateProperties1637611185871 implements MigrationInterface {
                     },
                     {
                         name: "available",
-                        type: "boolean"
+                        type: "boolean",
+                        default: true
                     },
                     {
                         name: "broker",
@@ -57,17 +58,49 @@ export class CreateProperties1637611185871 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
+                        name: "area",
+                        type: "integer"
+                    },
+                    {
+                        name: "number_of_bathrooms",
+                        type: "integer"
+                    },
+                    {
+                        name: "number_of_bedrooms",
+                        type: "integer"
+                    },
+                    {
+                        name: "number_of_suites",
+                        type: "integer"
+                    },
+                    {
+                        name: "isFurnished",
+                        type: "boolean"
+                    },
+                    {
+                        name: "aboutFurniture",
+                        type: "text"
+                    },
+                    {
+                        name: "pets",
+                        type: "boolean"
+                    },
+                    {
+                        name: "garage",
+                        type: "boolean"
+                    },
+                    {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()"
-                    },
+                    }
                 ]
             })
-        )
+        );
     }
-
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("properties");
+        
+        public async down(queryRunner: QueryRunner): Promise<void> {
+            await queryRunner.dropTable("properties");
+        }
     }
-
-}
+    
