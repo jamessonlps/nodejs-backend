@@ -133,58 +133,6 @@
           }
         }
       }
-    },
-    "/specifications": {
-      "post": {
-        "tags": ["Especificações"],
-        "summary": "Cria uma especificação de propriedade",
-        "description": "Rota responsável por cadastrar uma especificação referente a uma propriedade juntamente cadastrada.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "area": {
-                    "type": "string"
-                  },
-                  "number_of_bathrooms": {
-                    "type": "number"
-                  },
-                  "number_of_bedrooms": {
-                    "type": "number"
-                  },
-                  "number_of_suites": {
-                    "type": "number"
-                  },
-                  "isFurnished": {
-                    "type": "boolean"
-                  },
-                  "aboutFurniture": {
-                    "type": "string"
-                  },
-                  "pets": {
-                    "type": "boolean"
-                  },
-                  "garage": {
-                    "type": "boolean"
-                  }
-                },
-                "example": {
-                  "area": 98,
-                  "number_of_bathrooms": 2,
-                  "number_of_bedrooms": 3,
-                  "number_of_suites": 1,
-                  "isFurnished": true,
-                  "aboutFurniture": "Apartamento com sofá grande na sala, cozinha completa com fogão, forno, geladeira e microondas, lavanderia com máquina de lavar com 1 ano de uso.",
-                  "pets": true,
-                  "garage": true
-                }
-              }
-            }
-          }
-        }
-      }
     }
   }
 

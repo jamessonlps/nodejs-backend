@@ -13,6 +13,14 @@ interface IRequest {
   street: string;
   number: number;
   complement?: string;
+  area: number;
+  number_of_bathrooms: number;
+  number_of_bedrooms: number;
+  number_of_suites: number;
+  isFurnished: boolean;
+  aboutFurniture?: string;
+  pets: boolean;
+  garage: boolean;
 }
 
 @injectable()
@@ -22,28 +30,8 @@ class CreatePropertyUseCase {
     private propertiesRepository: IPropertiesRepository
   ) {}
 
-  async execute({ title,
-    description,
-    monthly_rate,
-    available,
-    broker,
-    state,
-    city,
-    district,
-    street,
-    number,
-    complement }: IRequest): Promise<void> {
-    await this.propertiesRepository.create({ title,
-      description,
-      monthly_rate,
-      available,
-      broker,
-      state,
-      city,
-      district,
-      street,
-      number,
-      complement });
+  async execute(data: IRequest): Promise<void> {
+    await this.propertiesRepository.create(data);
   }
 }
 

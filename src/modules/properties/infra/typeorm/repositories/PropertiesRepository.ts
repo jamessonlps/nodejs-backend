@@ -10,30 +10,8 @@ class PropertiesRepository implements IPropertiesRepository {
     this.repository = getRepository(Property);
   }
 
-  async create({ title,
-    description,
-    monthly_rate,
-    available,
-    broker,
-    state,
-    city,
-    district,
-    street,
-    number,
-    complement }: ICreatePropertyDTO): Promise<void> {
-    const property = this.repository.create({
-      title,
-      description,
-      monthly_rate,
-      available,
-      broker,
-      state,
-      city,
-      district,
-      street,
-      number,
-      complement
-    });
+  async create(data: ICreatePropertyDTO): Promise<void> {
+    const property = this.repository.create(data);
 
     await this.repository.save(property);
   }

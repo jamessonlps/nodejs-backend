@@ -1,11 +1,11 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateUsers1637877091645 implements MigrationInterface {
+export class CreatePropertyImages1638479724683 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: 'users',
+                name: 'properties_image',
                 columns: [
                     {
                         name: 'id',
@@ -13,31 +13,27 @@ export class CreateUsers1637877091645 implements MigrationInterface {
                         isPrimary: true
                     },
                     {
-                        name: 'name',
+                        name: 'property_id',
+                        type: 'uuid'
+                    },
+                    {
+                        name: 'image_name',
                         type: 'varchar'
-                    },
-                    {
-                        name: 'email',
-                        type: 'varchar'
-                    },
-                    {
-                        name: 'password',
-                        type: 'varchar'
-                    },
-                    {
-                        name: 'isAdmin',
-                        type: 'boolean',
-                        default: false
-                    },
-                    {
-                        name: 'avatar',
-                        type: 'varchar',
-                        isNullable: true
                     },
                     {
                         name: 'created_at',
                         type: 'timestamp',
                         default: 'now()'
+                    }
+                ],
+                foreignKeys: [
+                    {
+                        name: 'FKPropertyImage',
+                        referencedTableName: 'properties',
+                        referencedColumnNames: ['id'],
+                        columnNames: ['property_id'],
+                        onDelete: 'SET NULL',
+                        onUpdate: 'SET NULL'
                     }
                 ]
             })
@@ -45,6 +41,7 @@ export class CreateUsers1637877091645 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('users');
+        await queryRunner.dropTable('properties_image');
     }
+
 }

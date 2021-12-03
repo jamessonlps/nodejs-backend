@@ -22,7 +22,6 @@ ____
 ----
 
 >31/11/21 a 08/12/2021
-> - [ ] Criar tabela de aluguéis
-> - [ ] Criar tabela de relação entre propriedade e especificação
+> - [x] Criar tabela de aluguéis
 > - [ ] Finalizar documentação das rotas
 > - [ ] Deploy da aplicação
