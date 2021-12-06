@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
+import Property from "../../../../properties/infra/typeorm/entities/Property";
 
 @Entity('rentals')
 class Rental {
@@ -8,6 +9,10 @@ class Rental {
 
   @Column()
   user_id: string;
+
+  @ManyToOne(() => Property)
+  @JoinColumn({ name: 'property_id' })
+  property: Property;
 
   @Column()
   property_id: string;

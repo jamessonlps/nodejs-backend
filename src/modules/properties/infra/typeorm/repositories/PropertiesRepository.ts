@@ -37,6 +37,21 @@ class PropertiesRepository implements IPropertiesRepository {
     return properties;
   }
 
+  async findById(id: string): Promise<Property> {
+    const property = await this.repository.findOne(id);
+    return property;
+  }
+
+  async updateStatusAvailable(id: string, available: boolean): Promise<void> {
+    await this.repository
+      .createQueryBuilder()
+      .update()
+      .set({ available })
+      .where('id = :id')
+      .setParameters({ id })
+      .execute();
+  }
+
 }
 
 export default PropertiesRepository;

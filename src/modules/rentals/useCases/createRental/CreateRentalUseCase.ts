@@ -1,7 +1,13 @@
+import dayjs from "dayjs";
+import utc from 'dayjs/plugin/utc';
 import { inject, injectable } from "tsyringe";
 import IDateProvider from "../../../../shared/container/providers/DateProvider/IDateProvider";
 import { AppError } from "../../../../shared/errors/AppError";
+import IPropertiesRepository from "../../../properties/repositories/IPropertiesRepository";
+import Rental from "../../infra/typeorm/entities/Rental";
 import IRentalsRepository from "../../repositories/IRentalsRepository";
+
+dayjs.extend(utc);
 
 interface IRequest {
   user_id: string;
@@ -15,10 +21,12 @@ class CreateRentalUseCase {
     @inject('RentalsRepository')
     private rentalsRepository: IRentalsRepository,
     @inject('DayjsDateProvider')
-    private dateProvider: IDateProvider
+    private dateProvider: IDateProvider,
+    @inject('PropertiesRepository')
+    private propertiesRepository: IPropertiesRepository
   ) {}
 
-  async execute(dataRental: IRequest) {
+  async execute(dataRental: IRequest): Promise<Rental> {
     const minTimeRental = 24;
     const propertyIsUnavailable = await this.rentalsRepository.findOpenRentalByPropertyID(dataRental.property_id);
 
@@ -40,6 +48,8 @@ class CreateRentalUseCase {
     }
 
     const rental = this.rentalsRepository.create(dataRental);
+
+    await this.propertiesRepository.updateStatusAvailable(dataRental.property_id, false);
 
     return rental;
   }
