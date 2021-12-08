@@ -82,7 +82,9 @@ web_modules/
 .next
 out
 
-tmp
+tmp/*
+!tmp/.gitkeep
+ormconfig.json
 
 # Nuxt.js build / generate output
 .nuxt

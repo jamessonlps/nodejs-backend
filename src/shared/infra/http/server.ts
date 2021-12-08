@@ -8,12 +8,14 @@ import createConnection from '../typeorm';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSetup from '../../../swagger.json';
 import { AppError } from '../../errors/AppError';
+import upload from '../../../utils/upload';
 
 createConnection();
 const app = express();
 
 app.use(express.json());
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSetup));
+app.use('/properties', express.static(`${upload.tmpFolder}/properties`));
 app.use(router);
 
 app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
