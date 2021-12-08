@@ -9,7 +9,7 @@ import { userAuthentication } from "../middlewares/userAuthentication";
 
 const propertiesRoutes = Router();
 
-const uploadPropertyImage = multer(uploadConfig.upload('./tmp/properties'));
+const uploadPropertyImage = multer(uploadConfig);
 
 const createPropertyController = new CreatePropertyController();
 const listPropertyController = new ListPropertiesController();

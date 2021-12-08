@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
+import 'dotenv/config';
 import '../typeorm';
 import '../../container';
 import { router } from './routes';
