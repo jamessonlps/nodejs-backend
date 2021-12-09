@@ -421,6 +421,32 @@
           }
         }
       }
+    },
+    "rentals/close/{id}": {
+      "post": {
+        "tags": ["Aluguéis"],
+        "summary": "Finaliza um aluguel",
+        "description": "Finaliza um aluguel atribuindo ao locador o valor total a pagar",
+        "security": [
+          {"bearerAuth": []}
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do aluguel",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Closed"
+          }
+        }
+      }
     }
   },
   "components": {
