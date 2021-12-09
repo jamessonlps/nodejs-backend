@@ -57,6 +57,30 @@
                       },
                       "complement": {
                         "type": "string"
+                      },
+                      "area": {
+                        "type": "number"
+                      },
+                      "number_of_bathrooms": {
+                        "type": "number"
+                      },
+                      "number_of_bedrooms": {
+                        "type": "number"
+                      },
+                      "number_of_suites": {
+                        "type": "number"
+                      },
+                      "isFurnished": {
+                        "type": "boolean"
+                      },
+                      "aboutFurniture": {
+                        "type": "string"
+                      },
+                      "pets": {
+                        "type": "boolean"
+                      },
+                      "garage": {
+                        "type": "boolean"
                       }
                     }
                   }
@@ -108,20 +132,31 @@
                   },
                   "complement": {
                     "type": "string"
+                  },
+                  "area": {
+                    "type": "number"
+                  },
+                  "number_of_bathrooms": {
+                    "type": "number"
+                  },
+                  "number_of_bedrooms": {
+                    "type": "number"
+                  },
+                  "number_of_suites": {
+                    "type": "number"
+                  },
+                  "isFurnished": {
+                    "type": "boolean"
+                  },
+                  "aboutFurniture": {
+                    "type": "string"
+                  },
+                  "pets": {
+                    "type": "boolean"
+                  },
+                  "garage": {
+                    "type": "boolean"
                   }
-                },
-                "example": {
-                  "title": "Apartamento com 3 quartos",
-                  "description": "Famosa Toca do Larry",
-                  "monthly_rate": 6000,
-                  "available": false,
-                  "broker": "N.A. Empreendimentos",
-                  "state": "SP",
-                  "city": "São Paulo",
-                  "district": "Vila Olímpia",
-                  "street": "Rua Alvorada",
-                  "number": 859,
-                  "complement": "APT 101"
                 }
               }
             }
@@ -132,6 +167,91 @@
             "description": "Criada com sucesso"
           }
         }
+      }
+    },
+    "properties/images/{id}": {
+      "post": {
+        "tags": ["Propriedades"],
+        "summary": "Cadastra imagens de propriedades",
+        "description": "Rota responsável por fazer o upload de imagens referente a uma propriedade",
+        "security": [
+          {"bearerAuth": []}
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Property id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/sessions": {
+      "post": {
+        "tags": ["Login"],
+        "summary": "Autenticação de usuário",
+        "description": "Autenticação de usuário",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Email or password incorrect!"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }
