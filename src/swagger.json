@@ -244,6 +244,183 @@
           }
         }
       }
+    },
+    "/rentals": {
+      "post": {
+        "tags": ["Aluguéis"],
+        "summary": "Cria um aluguel",
+        "description": "Rota responsável por criar um aluguel",
+        "security": [
+          {"bearerAuth": []}
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "property_id": {
+                    "type": "string"
+                  },
+                  "expected_return_date": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "user_id": {
+                      "type": "string"
+                    },
+                    "property_id": {
+                      "type": "string"
+                    },
+                    "expected_return_date": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  }
+                  
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "This property is unavailable! || There is already a rental in progress for this user!"
+          }
+        }
+      }
+    },
+    "/rentals/user": {
+      "get": {
+        "tags": ["Aluguéis"],
+        "summary": "Lista todas as propriedades disponíveis",
+        "description": "Lista todas as propriedades disponíveis",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "user_id": {
+                        "type": "string"
+                      },
+                      "property_id": {
+                        "type": "string"
+                      },
+                      "initial_date": {
+                        "type": "string"
+                      },
+                      "final_date": {
+                        "type": "string"
+                      },
+                      "expected_return_date": {
+                        "type": "string"
+                      },
+                      "total": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      },
+                      "property": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "monthly_rate": {
+                            "type": "number"
+                          },
+                          "available": {
+                            "type": "boolean"
+                          },
+                          "broker": {
+                            "type": "string"
+                          },
+                          "state": {
+                            "type": "string"
+                          },
+                          "city": {
+                            "type": "string"
+                          },
+                          "district": {
+                            "type": "string"
+                          },
+                          "street": {
+                            "type": "string"
+                          },
+                          "number": {
+                            "type": "number"
+                          },
+                          "complement": {
+                            "type": "string"
+                          },
+                          "area": {
+                            "type": "number"
+                          },
+                          "number_of_bathrooms": {
+                            "type": "number"
+                          },
+                          "number_of_bedrooms": {
+                            "type": "number"
+                          },
+                          "number_of_suites": {
+                            "type": "number"
+                          },
+                          "isFurnished": {
+                            "type": "boolean"
+                          },
+                          "aboutFurniture": {
+                            "type": "string"
+                          },
+                          "pets": {
+                            "type": "boolean"
+                          },
+                          "garage": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    }
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
